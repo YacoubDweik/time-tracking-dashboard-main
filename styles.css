@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  /* Colors */
+  --Blue: hsl(246, 80%, 60%);
+  --Light-red-work: hsl(15, 100%, 70%);
+  --Soft-blue-play: hsl(195, 74%, 62%);
+  --Light-red-study: hsl(348, 100%, 68%);
+  --Lime-green-exercise: hsl(145, 58%, 55%);
+  --Violet-social: hsl(264, 64%, 52%);
+  --Soft-orange-self-care: hsl(43, 84%, 65%);
+  --card-bg: hsl(235, 46%, 20%);
+  --account-bg: hsl(235, 45%, 61%);
+  --last-week: hsl(236, 100%, 87%);
+  --main-bg: hsl(226, 43%, 10%);
+  /* Sizes */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-bold: 500;
+  --sm: 0.8125rem;
+  --md: 1rem;
+  --la: 1.75rem;
+  --xl: 2rem;
+  /* Font size: 18px (card titles e.g. Work, Play) */
+  /* 1110px * 520px */
+  /* 255px * 245px */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Rubik";
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--main-bg);
+}
+
+.container {
+  width: min(90%, 1110px);
+  min-height: 520px;
+  margin: var(--xl) auto;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(255px, 1fr)
+  );
+  gap: var(--la);
+  font-weight: var(--font-light);
+}
+
+.container__main {
+  grid-row: span 2;
+  color: white;
+  border-radius: var(--sm);
+  background-color: var(--card-bg);
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.main__header {
+  min-height: 65%;
+  padding: var(--la);
+  background-color: var(--Blue);
+  justify-content: flex-start;
+  gap: var(--xl);
+  border-radius: inherit;
+}
+
+.main__image {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 1px solid white;
+  flex-shrink: 0;
+}
+
+.main__image img {
+  max-width: 100%;
+}
+
+.main__name {
+  display: block;
+  font-size: 40px;
+}
+
+.main__body {
+  padding: var(--la);
+  min-height: 35%;
+  color: var(--account-bg);
+}
+
+.main__body span {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.main__body span:hover,
+.active {
+  color: white;
+}
+
+.container__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--Light-red-work);
+  background-repeat: no-repeat;
+  background-position: top right;
+  color: white;
+  border-radius: var(--sm);
+  overflow: hidden;
+}
+
+.work {
+  background-color: var(--Light-red-work);
+  background-image: url(./images/icon-work.svg);
+}
+
+.play {
+  background-color: var(--Soft-blue-play);
+  background-image: url(./images/icon-play.svg);
+}
+
+.study {
+  background-color: var(--Light-red-study);
+  background-image: url(./images/icon-study.svg);
+}
+
+.exercise {
+  background-color: var(--Lime-green-exercise);
+  background-image: url(./images/icon-exercise.svg);
+}
+
+.social {
+  background-color: var(--Violet-social);
+  background-image: url(./images/icon-social.svg);
+}
+
+.self {
+  background-color: var(--Soft-orange-self-care);
+  background-image: url(./images/icon-self-care.svg);
+}
+
+.card__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title + img {
+  cursor: pointer;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  min-height: calc(100% - 50px);
+  padding: var(--la);
+  width: 100%;
+  height: 100%;
+  background-color: var(--card-bg);
+  border-radius: var(--sm);
+  margin-top: 50px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card__body:hover {
+  background-color: hsl(236, 45%, 32%);
+}
+
+.card__info {
+  gap: var(--la);
+}
+
+.card__info .hours {
+  font-size: 3.5rem;
+}
+
+@media (min-width: 950px) {
+  body {
+    position: relative;
+    min-height: 100vh;
+  }
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: min(90%, 1110px);
+    min-height: 520px;
+  }
+  .wrapper {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 615px) {
+  .card__body {
+    gap: 50px;
+  }
+  .wrapper {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+  .main__header {
+    justify-content: space-between;
+  }
+  .main__name {
+    font-size: 30px;
+  }
+  .card__info {
+    gap: 0;
+  }
+  .card__info .hours {
+    font-size: 1.5rem;
+  }
+}
