@@ -193,7 +193,7 @@ body {
   font-size: 3.5rem;
 }
 
-@media (min-width: 950px) {
+@media (min-width: 1250px) {
   body {
     position: relative;
     min-height: 100vh;
@@ -207,6 +207,9 @@ body {
     width: min(90%, 1110px);
     min-height: 520px;
   }
+}
+
+@media (min-width: 950px) {
   .wrapper {
     flex-direction: column;
   }
